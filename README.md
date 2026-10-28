@@ -1,181 +1,117 @@
-ITGC User Access Review
+# ITGC User Access Review
 
-A self-initiated project to understand how ITGC user access reviews are performed using SQL, Excel and Power BI.
+A self-initiated project to understand how ITGC user access reviews are performed using **SQL, Excel and Power BI**.
 
-I created a synthetic dataset and used it to test common access-control scenarios that can come up during an IT audit.
+The project uses synthetic employee and access data to test common ITGC access controls and document exceptions.
 
-What I worked on
+## Controls Tested
 
-The project covers five main controls:
+| Control | Check |
+|---|---|
+| C01 | Terminated user with active access |
+| C02 | Privileged access without approval |
+| C03 | Role not aligned with job |
+| C04 | Segregation of Duties (SoD) conflict |
+| C05 | Password & MFA compliance |
 
-C01 – Terminated User Access
+## Data
 
-C02 – Privileged Access Approval
+- 200 Employees
+- 260 User Accounts
+- 450 Role Assignments
+- 12 SoD Rules
+- 45 Access Matrix Rules
+- Synthetic data only
 
-C03 – Role / Job Alignment
+## SQL Checks
 
-C04 – Segregation of Duties (SoD)
+The main SQL checks were:
 
-C05 – Password & MFA Compliance
+- Terminated employee → Active account
+- Privileged role → Approval required
+- Job + Role + System → Valid access matrix entry
+- Conflicting roles → SoD exception
+- Password age > 90 days → Exception
+- MFA = No → Exception
 
-The data contains:
+## Results
 
-200 employees
+**128 exception instances identified**
 
-260 user accounts
+| Control | Exceptions | Affected Users |
+|---|---:|---:|
+| C01 | 6 | 6 |
+| C02 | 14 | 13 |
+| C03 | 46 | 46 |
+| C04 | 30 | 19 |
+| C05 | 32 | 32 |
 
-450 role assignments
+**Additional findings**
+- 82 high-risk exceptions
+- 26 MFA exceptions
+- 6 password-age exceptions
+- C03 had the highest number of exceptions
 
-12 SoD rules
+## Exception Register
 
-45 access-matrix rules
+Exceptions were documented in Excel with:
 
-All data used in this project is synthetic.
+- Exception ID
+- Control
+- Risk / Priority
+- Owner
+- Status
+- Management Response
+- Target Date
+- Evidence Reference
 
-How I did it
+## Power BI Dashboard
 
-I started by creating the employee, account, role and control-rule datasets.
+The dashboard covers:
 
-Then I used SQL to test the controls and identify exceptions.
+- Total employees and accounts
+- Total exceptions
+- High-risk exceptions
+- Exceptions by control
+- Risk distribution
+- MFA and password exceptions
+- Account status
 
-The main checks included:
+## Tools
 
-Terminated employee → Active account
+**SQL · Excel · Power BI · DAX**
 
-Privileged role → Approval required
+## Project Structure
 
-Job Title + Role + System → Must exist in Access Matrix
-
-Conflicting roles → SoD exception
-
-Password > 90 days → Exception
-
-MFA = No → Exception
-
-The identified exceptions were then documented in an Excel exception register along with comments, ownership, remediation status and evidence references.
-
-Finally, I created a Power BI dashboard to give a quick view of the overall access-control review.
-
-Results
-
-The SQL testing identified 128 exception instances.
-
-Control
-
-Exceptions
-
-Affected Users
-
-C01 – Terminated User Access
-
-6
-
-6
-
-C02 – Privileged Access Approval
-
-14
-
-13
-
-C03 – Role / Job Alignment
-
-46
-
-46
-
-C04 – Segregation of Duties
-
-30
-
-19
-
-C05 – Password / MFA
-
-32
-
-32
-
-Other findings:
-
-82 high-risk exceptions
-
-26 MFA exceptions
-
-6 password-age exceptions
-
-C03 had the highest number of exceptions
-
-Power BI Dashboard
-
-The dashboard focuses on the main things I would want to see during an access review:
-
-Total employees
-
-Total accounts
-
-Total role assignments
-
-Total exceptions
-
-High-risk exceptions
-
-Exceptions by control
-
-Risk distribution
-
-Account status
-
-MFA and password exceptions
-
-Tools Used
-
-SQL – Control testing and exception identification
-Excel – Exception register and audit documentation
-Power BI – Dashboard and reporting
-DAX – Measures and KPIs
-
-Project Structure
-
-ITGC-User-Access-Review
+```text
+ITGC-User-Access-Review/
 │
-├── data
+├── data/
 │   └── Synthetic_Data.xlsx
 │
-├── sql
+├── sql/
 │   └── ITGC_Control_Tests.sql
 │
-├── excel
+├── excel/
 │   └── ITGC_Exception_Register.xlsx
 │
-├── powerbi
+├── powerbi/
 │   └── ITGC_Access_Control_Dashboard.pbix
 │
 └── README.md
+```
 
-What I learned
+## What I Learned
 
-This project helped me understand the practical side of:
+- ITGC access review
+- Control testing
+- Access-risk identification
+- Segregation of Duties
+- Exception documentation
+- Audit evidence
+- SQL-based control testing
+- Power BI reporting
 
-ITGC access reviews
+## Note
 
-Control testing
-
-Access-risk identification
-
-Segregation of Duties
-
-Exception documentation
-
-Audit evidence
-
-SQL-based audit analysis
-
-Power BI reporting
-
-Note
-
-This is a self-initiated portfolio project created for learning and interview purposes. The dataset is completely synthetic and does not contain real employee or company information.
-
-Niganth SG
-MBA – Finance & Business Analytics
+This is a self-initiated portfolio project created for learning and interview preparation. All data is synthetic.
