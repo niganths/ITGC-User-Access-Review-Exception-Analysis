@@ -76,6 +76,7 @@ The dashboard covers:
 - Risk distribution
 - MFA and password exceptions
 - Account status
+<img width="966" height="547" alt="Screenshot 2026-10-28 213737" src="https://github.com/user-attachments/assets/29737544-1d37-41bf-9ec4-344f23517787" />
 
 ## Tools
 
