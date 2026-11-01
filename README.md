@@ -64,6 +64,12 @@ Exceptions were documented in Excel with:
 - Management Response
 - Target Date
 - Evidence Reference
+  #images
+  <img width="1221" height="661" alt="image" src="https://github.com/user-attachments/assets/dfc0d82c-237d-4c36-be09-ef6871edeb47" />
+  <img width="1673" height="207" alt="image" src="https://github.com/user-attachments/assets/ca54a73f-2dac-4ecc-9e44-eef059798f88" />
+  <img width="1512" height="520" alt="image" src="https://github.com/user-attachments/assets/d43fcb89-1356-4cfa-8f85-94fc7405dec4" />
+
+
 
 ## Power BI Dashboard
 
