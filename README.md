@@ -114,4 +114,4 @@ ITGC-User-Access-Review/
 
 ## Note
 
-This is a self-initiated portfolio project created for learning and interview preparation. All data is synthetic.
+This is a self-initiated portfolio project created for learning. All data is synthetic.
